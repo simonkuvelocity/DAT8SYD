@@ -1,0 +1,1566 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0100)http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html -->
+<!DOCTYPE html PUBLIC "" ""><!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]--><!--[if gt IE 8]><!--><HTML 
+class="no-js" lang="en"><!--<![endif]--><HEAD><META content="IE=11.0000" 
+http-equiv="X-UA-Compatible">
+   
+<META charset="utf-8">     
+<META name="viewport" content="width=device-width, initial-scale=1.0">     
+<TITLE>Modeling Airline Delay — DataRobot Python Client 2.6.1 
+documentation</TITLE>                           <LINK href="Modeling%20Airline%20Delay%20—%20DataRobot%20Python%20Client%202_6_1%20documentation_files/theme.css" 
+rel="stylesheet" type="text/css">               <LINK title="Index" href="../../genindex.html" 
+rel="index">         <LINK title="Search" href="../../search.html" rel="search"> 
+    <LINK title="DataRobot Python Client 2.6.1 documentation" href="../../index.html" 
+rel="top">         <LINK title="Examples" href="../index.html" rel="up">         
+<LINK title="Financial Data" href="../financial_data/index.html" rel="next">     
+    <LINK title="Examples" href="../index.html" rel="prev">     
+<SCRIPT src="Modeling%20Airline%20Delay%20—%20DataRobot%20Python%20Client%202_6_1%20documentation_files/modernizr.min.js"></SCRIPT>
+ 
+<META name="GENERATOR" content="MSHTML 11.00.9600.18525"></HEAD> 
+<BODY class="wy-body-for-nav" role="document">
+<DIV class="wy-grid-for-nav"><NAV class="wy-nav-side" 
+data-toggle="wy-nav-shift">
+<DIV class="wy-side-scroll">
+<DIV class="wy-side-nav-search"><A class="icon icon-home" href="http://pythonhosted.org/datarobot/index.html"> 
+DataRobot Python Client                               </A>                       
+                          
+<DIV class="version">                2.6.1               </DIV>
+<DIV role="search">
+<FORM class="wy-form" id="rtd-search-form" action="../../search.html" method="get"><INPUT name="q" type="text" placeholder="Search docs" value=""><INPUT name="check_keywords" type="hidden" value="yes"> 
+    <INPUT name="area" type="hidden" value="default">   </FORM></DIV></DIV>
+<DIV class="wy-menu wy-menu-vertical" role="navigation" aria-label="main navigation" 
+data-spy="affix">
+<UL class="current">
+  <LI class="toctree-l1"><A class="reference internal" href="http://pythonhosted.org/datarobot/setup/getting_started.html">Getting 
+  Started</A></LI>
+  <LI class="toctree-l1"><A class="reference internal" href="http://pythonhosted.org/datarobot/setup/configuration.html">Configuration</A></LI>
+  <LI class="toctree-l1"><A class="reference internal" href="http://pythonhosted.org/datarobot/entities/quickstart.html">QuickStart</A></LI>
+  <LI class="toctree-l1"><A class="reference internal" href="http://pythonhosted.org/datarobot/entities/project.html">Projects</A></LI>
+  <LI class="toctree-l1"><A class="reference internal" href="http://pythonhosted.org/datarobot/entities/datetime_partition.html">Datetime 
+  Partitioned Projects</A></LI>
+  <LI class="toctree-l1"><A class="reference internal" href="http://pythonhosted.org/datarobot/entities/blueprint.html">Blueprints</A></LI>
+  <LI class="toctree-l1"><A class="reference internal" href="http://pythonhosted.org/datarobot/entities/model.html">Models</A></LI>
+  <LI class="toctree-l1"><A class="reference internal" href="http://pythonhosted.org/datarobot/entities/job.html">Jobs</A></LI>
+  <LI class="toctree-l1"><A class="reference internal" href="http://pythonhosted.org/datarobot/entities/model_job.html">ModelJobs</A></LI>
+  <LI class="toctree-l1"><A class="reference internal" href="http://pythonhosted.org/datarobot/entities/predict_job.html">PredictJobs</A></LI>
+  <LI class="toctree-l1"><A class="reference internal" href="http://pythonhosted.org/datarobot/entities/prime.html">DataRobot 
+  Prime</A></LI>
+  <LI class="toctree-l1"><A class="reference internal" href="http://pythonhosted.org/datarobot/entities/reason_codes.html">Reason 
+  Codes</A></LI>
+  <LI class="toctree-l1"><A class="reference internal" href="http://pythonhosted.org/datarobot/api/index.html">API 
+  Reference</A></LI>
+  <LI class="toctree-l1 current"><A class="reference internal" href="http://pythonhosted.org/datarobot/examples/index.html">Examples</A>
+  <UL class="current">
+    <LI class="toctree-l2 current"><A class="current reference internal" href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#">Modeling 
+    Airline Delay</A>
+    <UL>
+      <LI class="toctree-l3"><A class="reference internal" href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Overview">Overview</A></LI>
+      <LI class="toctree-l3"><A class="reference internal" href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Set-Up">Set 
+      Up</A></LI>
+      <LI class="toctree-l3"><A class="reference internal" href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Data-Sources">Data 
+      Sources</A></LI>
+      <LI class="toctree-l3"><A class="reference internal" href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Dataset-Structure">Dataset 
+      Structure</A></LI>
+      <LI class="toctree-l3"><A class="reference internal" href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#DataRobot-Modeling">DataRobot 
+      Modeling</A></LI>
+      <LI class="toctree-l3"><A class="reference internal" href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Starting-a-Project">Starting 
+      a Project</A></LI>
+      <LI class="toctree-l3"><A class="reference internal" href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Jobs-and-the-Project-Queue">Jobs 
+      and the Project Queue</A></LI>
+      <LI class="toctree-l3"><A class="reference internal" href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Features">Features</A></LI>
+      <LI class="toctree-l3"><A class="reference internal" href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Models">Models</A></LI>
+      <LI class="toctree-l3"><A class="reference internal" href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Visualizing-Models">Visualizing 
+      Models</A></LI>
+      <LI class="toctree-l3"><A class="reference internal" href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Unlocking-the-Holdout">Unlocking 
+      the Holdout</A></LI>
+      <LI class="toctree-l3"><A class="reference internal" href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Retrain-on-100%">Retrain 
+      on 100%</A></LI>
+      <LI class="toctree-l3"><A class="reference internal" href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Predictions">Predictions</A></LI></UL></LI>
+    <LI class="toctree-l2"><A class="reference internal" href="http://pythonhosted.org/datarobot/examples/financial_data/index.html">Financial 
+    Data</A></LI></UL></LI>
+  <LI class="toctree-l1"><A class="reference internal" href="http://pythonhosted.org/datarobot/CHANGES.html">Changelog</A></LI></UL></DIV></DIV></NAV><SECTION 
+class="wy-nav-content-wrap" data-toggle="wy-nav-shift"><NAV class="wy-nav-top" 
+role="navigation" aria-label="top navigation"><I class="fa fa-bars" data-toggle="wy-nav-top"></I> 
+        <A href="http://pythonhosted.org/datarobot/index.html">DataRobot Python 
+Client</A>       </NAV>
+<DIV class="wy-nav-content">
+<DIV class="rst-content">
+<DIV role="navigation" aria-label="breadcrumbs navigation">
+<UL class="wy-breadcrumbs">
+  <LI><A href="http://pythonhosted.org/datarobot/index.html">Docs</A> »</LI>
+  <LI><A 
+  href="http://pythonhosted.org/datarobot/examples/index.html">Examples</A> 
+  »</LI>
+  <LI>Modeling Airline Delay</LI>
+  <LI class="wy-breadcrumbs-aside"><A href="http://pythonhosted.org/datarobot/_sources/examples/airline_ontime_example/Modeling_Airline_Delay.txt" 
+  rel="nofollow"> View page source</A>                         </LI></UL>
+<HR>
+</DIV>
+<DIV class="document" role="main" itemtype="http://schema.org/Article" 
+itemscope="itemscope">
+<DIV itemprop="articleBody">
+<STYLE>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput > div,
+div.nbinput div[class^=highlight],
+div.nbinput div[class^=highlight] pre,
+div.nboutput,
+div.nboutput > div,
+div.nboutput div[class^=highlight],
+div.nboutput div[class^=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class^=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput > :first-child pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput > :first-child pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput > :first-child[class^=highlight],
+div.nboutput > :first-child[class^=highlight],
+div.nboutput > :first-child {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+
+/* input/output area */
+div.nbinput > :nth-child(2)[class^=highlight],
+div.nboutput > :nth-child(2),
+div.nboutput > :nth-child(2)[class^=highlight] {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+
+/* input area */
+div.nbinput > :nth-child(2)[class^=highlight] {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput  > :nth-child(2).stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</STYLE>
+ 
+<DIV class="section" id="Modeling-Airline-Delay">
+<H1>Modeling Airline Delay<A title="Permalink to this headline" class="headerlink" 
+href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Modeling-Airline-Delay">¶</A></H1>
+<DIV class="section" id="Overview">
+<H2>Overview<A title="Permalink to this headline" class="headerlink" href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Overview">¶</A></H2>
+<P>Statistics on whether a flight was delayed and for how long are available 
+from government databases for all the major carriers. It would be useful to be 
+able to predict before scheduling a flight whether or not it was likely to be 
+delayed. In this example, DataRobot will try to model whether a flight will be 
+delayed, based on information such as the scheduled departure time and whether 
+rained the day of the flight.</P></DIV>
+<DIV class="section" id="Set-Up">
+<H2>Set Up<A title="Permalink to this headline" class="headerlink" href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Set-Up">¶</A></H2>
+<P>This example assumes that the DataRobot Python client package has been
+ installed and configured with the credentials of a DataRobot user with API 
+access permissions.</P></DIV>
+<DIV class="section" id="Data-Sources">
+<H2>Data Sources<A title="Permalink to this headline" class="headerlink" href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Data-Sources">¶</A></H2>
+<P>Information on flights and flight delays is made available by the Bureau of 
+Transportation Statistics at <A class="reference external" href="http://apps.bts.gov/xml/ontimesummarystatistics/src/dstat/OntimeSummaryDepatures.xml">http://apps.bts.gov/xml/ontimesummarystatistics/src/dstat/OntimeSummaryDepatures.xml</A>.
+ To narrow down the amount of data involved, the datasets assembled for this use 
+case are limited to US Airways flights out of Boston Logan in 2013 and 2014, 
+although the script for interacting with DataRobot is sufficiently general that 
+any dataset with the correct format could be used. A flight was declared to be 
+delayed if it ultimately took off at least fifteen minutes after its scheduled 
+departure time.</P>
+<P>In additional to flight information, each record in the prepared dataset
+ notes the amount of rain and whether it rained on the day of the flight. This 
+information came from the National Oceanic and Atmospheric Administration’s 
+Quality Controlled Local Climatological Data, available at <A class="reference external" 
+href="http://www.ncdc.noaa.gov/qclcd/QCLCD">http://www.ncdc.noaa.gov/qclcd/QCLCD</A>. 
+By looking at the recorded daily summaries of the water equivalent precipitation 
+at the Bostan Logan station, the daily rainfall for each day in 2013 and 2014 
+was measured. For some days, the QCLCD reports trace amounts of rainfall, which 
+was recorded as 0 inches of rain.</P></DIV>
+<DIV class="section" id="Dataset-Structure">
+<H2>Dataset Structure<A title="Permalink to this headline" class="headerlink" 
+href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Dataset-Structure">¶</A></H2>
+<P>Each row in the assembled dataset contains the following columns</P>
+<UL class="simple">
+  <LI>was_delayed
+  <UL>
+    <LI>boolean</LI>
+    <LI>whether the flight was delayed</LI></UL></LI>
+  <LI>daily_rainfall
+  <UL>
+    <LI>float</LI>
+    <LI>the amount of rain, in inches, on the day of the flight</LI></UL></LI>
+  <LI>did_rain
+  <UL>
+    <LI>bool</LI>
+    <LI>whether it rained on the day of the flight</LI></UL></LI>
+  <LI>Carrier Code
+  <UL>
+    <LI>str</LI>
+    <LI>the carrier code of the airline - US for all entries in assembled
+     dataset</LI></UL></LI>
+  <LI>Date
+  <UL>
+    <LI>str (MM/DD/YYYY format)</LI>
+    <LI>the date of the flight</LI></UL></LI>
+  <LI>Flight Number
+  <UL>
+    <LI>str</LI>
+    <LI>the flight number for the flight</LI></UL></LI>
+  <LI>Tail Number
+  <UL>
+    <LI>str</LI>
+    <LI>the tail number of the aircraft</LI></UL></LI>
+  <LI>Destination Airport
+  <UL>
+    <LI>str</LI>
+    <LI>the three-letter airport code of the destination airport</LI></UL></LI>
+  <LI>Scheduled Deparature Time
+  <UL>
+    <LI>str</LI>
+    <LI>the 24-hour scheduled departure time of the flight, in the origin
+     airport’s timezone</LI></UL></LI></UL>
+<DIV class="nbinput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [1]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="kn">import</SPAN> <SPAN class="nn">pandas</SPAN> <SPAN class="kn">as</SPAN> <SPAN class="nn">pd</SPAN>
+<SPAN class="kn">import</SPAN> <SPAN class="nn">datarobot</SPAN> <SPAN class="kn">as</SPAN> <SPAN class="nn">dr</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [2]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">data_path</SPAN> <SPAN class="o">=</SPAN> <SPAN class="s2">"logan-US-2013.csv"</SPAN>
+<SPAN class="n">logan_2013</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">pd</SPAN><SPAN class="o">.</SPAN><SPAN class="n">read_csv</SPAN><SPAN class="p">(</SPAN><SPAN class="n">data_path</SPAN><SPAN class="p">)</SPAN>
+<SPAN class="n">logan_2013</SPAN><SPAN class="o">.</SPAN><SPAN class="n">head</SPAN><SPAN class="p">()</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[2]:
+</PRE></DIV></DIV>
+<DIV class="container">
+<DIV style="overflow: auto; max-height: 1000px; max-width: 1500px;">
+<TABLE class="dataframe" border="1">
+  <THEAD>
+  <TR style="text-align: right;">
+    <TH></TH>
+    <TH>was_delayed</TH>
+    <TH>daily_rainfall</TH>
+    <TH>did_rain</TH>
+    <TH>Carrier Code</TH>
+    <TH>Date (MM/DD/YYYY)</TH>
+    <TH>Flight Number</TH>
+    <TH>Tail Number</TH>
+    <TH>Destination Airport </TH>
+    <TH>Scheduled Departure Time</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TH>0</TH>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD> False</TD>
+    <TD> US</TD>
+    <TD> 02/01/2013</TD>
+    <TD> 225</TD>
+    <TD> N662AW</TD>
+    <TD> PHX</TD>
+    <TD> 16:20</TD></TR>
+  <TR>
+    <TH>1</TH>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD> False</TD>
+    <TD> US</TD>
+    <TD> 02/01/2013</TD>
+    <TD> 280</TD>
+    <TD> N822AW</TD>
+    <TD> PHX</TD>
+    <TD> 06:00</TD></TR>
+  <TR>
+    <TH>2</TH>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD> False</TD>
+    <TD> US</TD>
+    <TD> 02/01/2013</TD>
+    <TD> 303</TD>
+    <TD> N653AW</TD>
+    <TD> CLT</TD>
+    <TD> 09:35</TD></TR>
+  <TR>
+    <TH>3</TH>
+    <TD>  True</TD>
+    <TD> 0</TD>
+    <TD> False</TD>
+    <TD> US</TD>
+    <TD> 02/01/2013</TD>
+    <TD> 604</TD>
+    <TD> N640AW</TD>
+    <TD> PHX</TD>
+    <TD> 09:55</TD></TR>
+  <TR>
+    <TH>4</TH>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD> False</TD>
+    <TD> US</TD>
+    <TD> 02/01/2013</TD>
+    <TD> 722</TD>
+    <TD> N715UW</TD>
+    <TD> PHL</TD>
+    <TD> 18:30</TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<P>We want to be able to make predictions for future data, so the “date” column 
+should be transformed in a way that avoids values that won’t be populated for 
+future data:</P>
+<DIV class="nbinput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [3]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="k">def</SPAN> <SPAN class="nf">prepare_modeling_dataset</SPAN><SPAN class="p">(</SPAN><SPAN class="n">df</SPAN><SPAN class="p">):</SPAN>
+    <SPAN class="n">date_column_name</SPAN> <SPAN class="o">=</SPAN> <SPAN class="s1">'Date (MM/DD/YYYY)'</SPAN>
+    <SPAN class="n">date</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">pd</SPAN><SPAN class="o">.</SPAN><SPAN class="n">to_datetime</SPAN><SPAN class="p">(</SPAN><SPAN class="n">df</SPAN><SPAN class="p">[</SPAN><SPAN class="n">date_column_name</SPAN><SPAN class="p">])</SPAN>
+    <SPAN class="n">modeling_df</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">df</SPAN><SPAN class="o">.</SPAN><SPAN class="n">drop</SPAN><SPAN class="p">(</SPAN><SPAN class="n">date_column_name</SPAN><SPAN class="p">,</SPAN> <SPAN class="n">axis</SPAN><SPAN class="o">=</SPAN><SPAN class="mi">1</SPAN><SPAN class="p">)</SPAN>
+    <SPAN class="n">days</SPAN> <SPAN class="o">=</SPAN> <SPAN class="p">{</SPAN><SPAN class="mi">0</SPAN><SPAN class="p">:</SPAN> <SPAN class="s1">'Mon'</SPAN><SPAN class="p">,</SPAN> <SPAN class="mi">1</SPAN><SPAN class="p">:</SPAN> <SPAN class="s1">'Tues'</SPAN><SPAN class="p">,</SPAN> <SPAN class="mi">2</SPAN><SPAN class="p">:</SPAN> <SPAN class="s1">'Weds'</SPAN><SPAN class="p">,</SPAN> <SPAN class="mi">3</SPAN><SPAN class="p">:</SPAN> <SPAN class="s1">'Thurs'</SPAN><SPAN class="p">,</SPAN> <SPAN class="mi">4</SPAN><SPAN class="p">:</SPAN> <SPAN class="s1">'Fri'</SPAN><SPAN class="p">,</SPAN> <SPAN class="mi">5</SPAN><SPAN class="p">:</SPAN> <SPAN class="s1">'Sat'</SPAN><SPAN class="p">,</SPAN>
+            <SPAN class="mi">6</SPAN><SPAN class="p">:</SPAN> <SPAN class="s1">'Sun'</SPAN><SPAN class="p">}</SPAN>
+    <SPAN class="n">modeling_df</SPAN><SPAN class="p">[</SPAN><SPAN class="s1">'day_of_week'</SPAN><SPAN class="p">]</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">date</SPAN><SPAN class="o">.</SPAN><SPAN class="n">apply</SPAN><SPAN class="p">(</SPAN><SPAN class="k">lambda</SPAN> <SPAN class="n">x</SPAN><SPAN class="p">:</SPAN> <SPAN class="n">days</SPAN><SPAN class="p">[</SPAN><SPAN class="n">x</SPAN><SPAN class="o">.</SPAN><SPAN class="n">dayofweek</SPAN><SPAN class="p">])</SPAN>
+    <SPAN class="n">modeling_df</SPAN><SPAN class="p">[</SPAN><SPAN class="s1">'month'</SPAN><SPAN class="p">]</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">date</SPAN><SPAN class="o">.</SPAN><SPAN class="n">dt</SPAN><SPAN class="o">.</SPAN><SPAN class="n">month</SPAN>
+    <SPAN class="k">return</SPAN> <SPAN class="n">modeling_df</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [4]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">logan_2013_modeling</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">prepare_modeling_dataset</SPAN><SPAN class="p">(</SPAN><SPAN class="n">logan_2013</SPAN><SPAN class="p">)</SPAN>
+<SPAN class="n">logan_2013_modeling</SPAN><SPAN class="o">.</SPAN><SPAN class="n">head</SPAN><SPAN class="p">()</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[4]:
+</PRE></DIV></DIV>
+<DIV class="container">
+<DIV style="overflow: auto; max-height: 1000px; max-width: 1500px;">
+<TABLE class="dataframe" border="1">
+  <THEAD>
+  <TR style="text-align: right;">
+    <TH></TH>
+    <TH>was_delayed</TH>
+    <TH>daily_rainfall</TH>
+    <TH>did_rain</TH>
+    <TH>Carrier Code</TH>
+    <TH>Flight Number</TH>
+    <TH>Tail Number</TH>
+    <TH>Destination Airport </TH>
+    <TH>Scheduled Departure Time</TH>
+    <TH>day_of_week</TH>
+    <TH>month</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TH>0</TH>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD> False</TD>
+    <TD> US</TD>
+    <TD> 225</TD>
+    <TD> N662AW</TD>
+    <TD> PHX</TD>
+    <TD> 16:20</TD>
+    <TD> Fri</TD>
+    <TD> 2</TD></TR>
+  <TR>
+    <TH>1</TH>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD> False</TD>
+    <TD> US</TD>
+    <TD> 280</TD>
+    <TD> N822AW</TD>
+    <TD> PHX</TD>
+    <TD> 06:00</TD>
+    <TD> Fri</TD>
+    <TD> 2</TD></TR>
+  <TR>
+    <TH>2</TH>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD> False</TD>
+    <TD> US</TD>
+    <TD> 303</TD>
+    <TD> N653AW</TD>
+    <TD> CLT</TD>
+    <TD> 09:35</TD>
+    <TD> Fri</TD>
+    <TD> 2</TD></TR>
+  <TR>
+    <TH>3</TH>
+    <TD>  True</TD>
+    <TD> 0</TD>
+    <TD> False</TD>
+    <TD> US</TD>
+    <TD> 604</TD>
+    <TD> N640AW</TD>
+    <TD> PHX</TD>
+    <TD> 09:55</TD>
+    <TD> Fri</TD>
+    <TD> 2</TD></TR>
+  <TR>
+    <TH>4</TH>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD> False</TD>
+    <TD> US</TD>
+    <TD> 722</TD>
+    <TD> N715UW</TD>
+    <TD> PHL</TD>
+    <TD> 18:30</TD>
+    <TD> Fri</TD>
+    <TD> 2</TD></TR></TBODY></TABLE></DIV></DIV></DIV></DIV>
+<DIV class="section" id="DataRobot-Modeling">
+<H2>DataRobot Modeling<A title="Permalink to this headline" class="headerlink" 
+href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#DataRobot-Modeling">¶</A></H2>
+<P>As part of this use case, in <CODE class="docutils literal"><SPAN 
+class="pre">model_flight_ontime.py</SPAN></CODE>, a DataRobot project will be 
+created and used to run a variety of models against the assembled datasets. By 
+default, DataRobot will run autopilot on the automatically generated Informative 
+Features list, which excludes certain pathological features (like Carrier Code 
+in this example, which is always the same value), and we will also create a 
+custom feature list excluding the amount of rainfall on the day of the 
+flight.</P>
+<P>This notebook shows how to use the Python API client to create a project, 
+create feature lists, train models with different sample percents and feature 
+lists, and view the models that have been run. It will:</P>
+<UL class="simple">
+  <LI>create a project</LI>
+  <LI>create a new feature list (no foreknowledge) excluding the rainfall
+   features</LI>
+  <LI>set the target to <CODE class="docutils literal"><SPAN 
+  class="pre">was_delayed</SPAN></CODE>, and run DataRobot autopilot on the
+   Informative Features list</LI>
+  <LI>rerun autopilot on a new feature list</LI>
+  <LI>make predictions on a new data set</LI></UL></DIV>
+<DIV class="section" id="Starting-a-Project">
+<H2>Starting a Project<A title="Permalink to this headline" class="headerlink" 
+href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Starting-a-Project">¶</A></H2>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [5]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">project</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">dr</SPAN><SPAN class="o">.</SPAN><SPAN class="n">Project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">start</SPAN><SPAN class="p">(</SPAN><SPAN class="n">logan_2013_modeling</SPAN><SPAN class="p">,</SPAN>
+                           <SPAN class="n">project_name</SPAN><SPAN class="o">=</SPAN><SPAN class="s1">'Airline Delays - was_delayed'</SPAN><SPAN class="p">,</SPAN>
+                           <SPAN class="n">target</SPAN><SPAN class="o">=</SPAN><SPAN class="s2">"was_delayed"</SPAN><SPAN class="p">)</SPAN>
+<SPAN class="n">project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">id</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[5]:
+</PRE></DIV></DIV>
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>u'57b64eacc808916b01929a5e'
+</PRE></DIV></DIV></DIV></DIV>
+<DIV class="section" id="Jobs-and-the-Project-Queue">
+<H2>Jobs and the Project Queue<A title="Permalink to this headline" class="headerlink" 
+href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Jobs-and-the-Project-Queue">¶</A></H2>
+<P>You can view the project in your browser:</P>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [6]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">open_leaderboard_browser</SPAN><SPAN class="p">()</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[6]:
+</PRE></DIV></DIV>
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>True
+</PRE></DIV></DIV></DIV>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [7]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="c1">#  Set worker count higher. This will fail if you don't have 10 workers.</SPAN>
+<SPAN class="n">project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">set_worker_count</SPAN><SPAN class="p">(</SPAN><SPAN class="mi">10</SPAN><SPAN class="p">)</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[7]:
+</PRE></DIV></DIV>
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Project(Airline Delays - was_delayed)
+</PRE></DIV></DIV></DIV>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [8]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">pause_autopilot</SPAN><SPAN class="p">()</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[8]:
+</PRE></DIV></DIV>
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>True
+</PRE></DIV></DIV></DIV>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [9]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="c1">#  More jobs will go in the queue in each stage of autopilot.</SPAN>
+<SPAN class="c1">#  This gets the currently inprogress and queued jobs</SPAN>
+<SPAN class="n">project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">get_model_jobs</SPAN><SPAN class="p">()</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[9]:
+</PRE></DIV></DIV>
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>[ModelJob(Naive Bayes combiner classifier, status=inprogress),
+ ModelJob(Breiman and Cutler Random Forest Classifier, status=inprogress),
+ ModelJob(RuleFit Classifier, status=queue),
+ ModelJob(Regularized Logistic Regression (L2), status=queue),
+ ModelJob(Elastic-Net Classifier (L2 / Binomial Deviance), status=queue),
+ ModelJob(RandomForest Classifier (Gini), status=queue),
+ ModelJob(eXtreme Gradient Boosted Trees Classifier with Early Stopping, status=queue),
+ ModelJob(Nystroem Kernel SVM Classifier, status=queue),
+ ModelJob(Regularized Logistic Regression (L2), status=queue),
+ ModelJob(Elastic-Net Classifier (L2 / Binomial Deviance), status=queue),
+ ModelJob(Elastic-Net Classifier (L2 / Binomial Deviance) with Binned numeric features, status=queue),
+ ModelJob(RandomForest Classifier (Gini), status=inprogress),
+ ModelJob(Elastic-Net Classifier (mixing alpha=0.5 / Binomial Deviance), status=queue),
+ ModelJob(RandomForest Classifier (Gini), status=queue),
+ ModelJob(RandomForest Classifier (Entropy), status=queue),
+ ModelJob(ExtraTrees Classifier (Gini), status=queue),
+ ModelJob(Gradient Boosted Trees Classifier with Early Stopping, status=queue),
+ ModelJob(Gradient Boosted Greedy Trees Classifier with Early Stopping, status=queue),
+ ModelJob(eXtreme Gradient Boosted Trees Classifier with Early Stopping, status=queue),
+ ModelJob(Auto-tuned K-Nearest Neighbors Classifier (Minkowski Distance), status=queue),
+ ModelJob(Gradient Boosted Trees Classifier, status=inprogress),
+ ModelJob(Decision Tree Classifier (Gini), status=inprogress),
+ ModelJob(Logistic Regression, status=inprogress),
+ ModelJob(Regularized Logistic Regression (L2), status=inprogress),
+ ModelJob(Auto-tuned K-Nearest Neighbors Classifier (Minkowski Distance), status=inprogress),
+ ModelJob(Majority Class Classifier, status=inprogress),
+ ModelJob(Gradient Boosted Trees Classifier, status=inprogress)]
+</PRE></DIV></DIV></DIV>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [10]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">unpause_autopilot</SPAN><SPAN class="p">()</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[10]:
+</PRE></DIV></DIV>
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>True
+</PRE></DIV></DIV></DIV></DIV>
+<DIV class="section" id="Features">
+<H2>Features<A title="Permalink to this headline" class="headerlink" href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Features">¶</A></H2>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [11]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">features</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">get_features</SPAN><SPAN class="p">()</SPAN>
+<SPAN class="n">features</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[11]:
+</PRE></DIV></DIV>
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>[Feature(did_rain),
+ Feature(Destination Airport),
+ Feature(Carrier Code),
+ Feature(Flight Number),
+ Feature(Tail Number),
+ Feature(day_of_week),
+ Feature(month),
+ Feature(Scheduled Departure Time),
+ Feature(daily_rainfall),
+ Feature(was_delayed)]
+</PRE></DIV></DIV></DIV>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [12]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">pd</SPAN><SPAN class="o">.</SPAN><SPAN class="n">DataFrame</SPAN><SPAN class="p">([</SPAN><SPAN class="n">f</SPAN><SPAN class="o">.</SPAN><SPAN class="n">__dict__</SPAN> <SPAN class="k">for</SPAN> <SPAN class="n">f</SPAN> <SPAN class="ow">in</SPAN> <SPAN class="n">features</SPAN><SPAN class="p">])</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[12]:
+</PRE></DIV></DIV>
+<DIV class="container">
+<DIV style="overflow: auto; max-height: 1000px; max-width: 1500px;">
+<TABLE class="dataframe" border="1">
+  <THEAD>
+  <TR style="text-align: right;">
+    <TH></TH>
+    <TH>feature_type</TH>
+    <TH>id</TH>
+    <TH>importance</TH>
+    <TH>low_information</TH>
+    <TH>na_count</TH>
+    <TH>name</TH>
+    <TH>unique_count</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TH>0</TH>
+    <TD>     Boolean</TD>
+    <TD> 2</TD>
+    <TD> 0.029045</TD>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD>                 did_rain</TD>
+    <TD>   2</TD></TR>
+  <TR>
+    <TH>1</TH>
+    <TD> Categorical</TD>
+    <TD> 6</TD>
+    <TD> 0.003714</TD>
+    <TD>  True</TD>
+    <TD> 0</TD>
+    <TD>      Destination Airport</TD>
+    <TD>   5</TD></TR>
+  <TR>
+    <TH>2</TH>
+    <TD> Categorical</TD>
+    <TD> 3</TD>
+    <TD>      NaN</TD>
+    <TD>  True</TD>
+    <TD> 0</TD>
+    <TD>             Carrier Code</TD>
+    <TD>   1</TD></TR>
+  <TR>
+    <TH>3</TH>
+    <TD>     Numeric</TD>
+    <TD> 4</TD>
+    <TD> 0.005900</TD>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD>            Flight Number</TD>
+    <TD> 329</TD></TR>
+  <TR>
+    <TH>4</TH>
+    <TD> Categorical</TD>
+    <TD> 5</TD>
+    <TD>-0.004512</TD>
+    <TD>  True</TD>
+    <TD> 0</TD>
+    <TD>              Tail Number</TD>
+    <TD> 296</TD></TR>
+  <TR>
+    <TH>5</TH>
+    <TD> Categorical</TD>
+    <TD> 8</TD>
+    <TD> 0.003452</TD>
+    <TD>  True</TD>
+    <TD> 0</TD>
+    <TD>              day_of_week</TD>
+    <TD>   7</TD></TR>
+  <TR>
+    <TH>6</TH>
+    <TD>     Numeric</TD>
+    <TD> 9</TD>
+    <TD> 0.003043</TD>
+    <TD>  True</TD>
+    <TD> 0</TD>
+    <TD>                    month</TD>
+    <TD>  12</TD></TR>
+  <TR>
+    <TH>7</TH>
+    <TD>        Time</TD>
+    <TD> 7</TD>
+    <TD> 0.058245</TD>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD> Scheduled Departure Time</TD>
+    <TD>  77</TD></TR>
+  <TR>
+    <TH>8</TH>
+    <TD>     Numeric</TD>
+    <TD> 1</TD>
+    <TD> 0.034295</TD>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD>           daily_rainfall</TD>
+    <TD>  58</TD></TR>
+  <TR>
+    <TH>9</TH>
+    <TD>     Boolean</TD>
+    <TD> 0</TD>
+    <TD> 1.000000</TD>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD>              was_delayed</TD>
+    <TD>   2</TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<P>Three feature lists are automatically created:</P>
+<UL class="simple">
+  <LI><EM>Raw Features</EM>: one for all features</LI>
+  <LI><EM>Informative Features</EM>: one based on features with any information
+   (columns with no variation are excluded)</LI>
+  <LI><EM>Univariate Importance</EM>: one based on univariate importance (this 
+  is only created after the target is set)</LI></UL>
+<P><EM>Informative Features</EM> is the one used by default in autopilot.</P>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [13]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">feature_lists</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">get_featurelists</SPAN><SPAN class="p">()</SPAN>
+<SPAN class="n">feature_lists</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[13]:
+</PRE></DIV></DIV>
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>[Featurelist(Informative Features),
+ Featurelist(Raw Features),
+ Featurelist(Univariate Selections)]
+</PRE></DIV></DIV></DIV>
+<DIV class="nbinput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [14]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="c1"># create a featurelist without the rain features</SPAN>
+<SPAN class="c1"># (since they leak future information)</SPAN>
+<SPAN class="n">informative_feats</SPAN> <SPAN class="o">=</SPAN> <SPAN class="p">[</SPAN><SPAN class="n">lst</SPAN> <SPAN class="k">for</SPAN> <SPAN class="n">lst</SPAN> <SPAN class="ow">in</SPAN> <SPAN class="n">feature_lists</SPAN> <SPAN class="k">if</SPAN>
+                     <SPAN class="n">lst</SPAN><SPAN class="o">.</SPAN><SPAN class="n">name</SPAN> <SPAN class="o">==</SPAN> <SPAN class="s1">'Informative Features'</SPAN><SPAN class="p">][</SPAN><SPAN class="mi">0</SPAN><SPAN class="p">]</SPAN>
+<SPAN class="n">no_foreknowledge_features</SPAN> <SPAN class="o">=</SPAN> <SPAN class="nb">list</SPAN><SPAN class="p">(</SPAN>
+    <SPAN class="nb">set</SPAN><SPAN class="p">(</SPAN><SPAN class="n">informative_feats</SPAN><SPAN class="o">.</SPAN><SPAN class="n">features</SPAN><SPAN class="p">)</SPAN> <SPAN class="o">-</SPAN> <SPAN class="p">{</SPAN><SPAN class="s1">'daily_rainfall'</SPAN><SPAN class="p">,</SPAN> <SPAN class="s1">'did_rain'</SPAN><SPAN class="p">})</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [15]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">no_foreknowledge</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">create_featurelist</SPAN><SPAN class="p">(</SPAN><SPAN class="s1">'no foreknowledge'</SPAN><SPAN class="p">,</SPAN>
+                                              <SPAN class="n">no_foreknowledge_features</SPAN><SPAN class="p">)</SPAN>
+<SPAN class="n">no_foreknowledge</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[15]:
+</PRE></DIV></DIV>
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Featurelist(no foreknowledge)
+</PRE></DIV></DIV></DIV>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [16]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">get_status</SPAN><SPAN class="p">()</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[16]:
+</PRE></DIV></DIV>
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>{u'autopilot_done': False,
+ u'stage': u'modeling',
+ u'stage_description': u'Ready for modeling'}
+</PRE></DIV></DIV></DIV>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [17]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="c1"># This waits until autopilot is complete:</SPAN>
+<SPAN class="n">project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">wait_for_autopilot</SPAN><SPAN class="p">(</SPAN><SPAN class="n">check_interval</SPAN><SPAN class="o">=</SPAN><SPAN class="mi">90</SPAN><SPAN class="p">)</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="container"></DIV>
+<DIV class="container">
+<DIV class="highlight">
+<PRE>In progress: 10, queued: 17 (waited: 0s)
+In progress: 10, queued: 17 (waited: 1s)
+In progress: 10, queued: 17 (waited: 1s)
+In progress: 10, queued: 17 (waited: 2s)
+In progress: 10, queued: 17 (waited: 3s)
+In progress: 10, queued: 17 (waited: 4s)
+In progress: 10, queued: 16 (waited: 8s)
+In progress: 10, queued: 10 (waited: 14s)
+In progress: 9, queued: 4 (waited: 27s)
+In progress: 4, queued: 0 (waited: 53s)
+In progress: 7, queued: 0 (waited: 105s)
+In progress: 10, queued: 22 (waited: 195s)
+In progress: 10, queued: 1 (waited: 285s)
+In progress: 4, queued: 0 (waited: 376s)
+In progress: 0, queued: 0 (waited: 466s)
+</PRE></DIV></DIV></DIV>
+<DIV class="nbinput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [18]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">start_autopilot</SPAN><SPAN class="p">(</SPAN><SPAN class="n">no_foreknowledge</SPAN><SPAN class="o">.</SPAN><SPAN class="n">id</SPAN><SPAN class="p">)</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [19]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">wait_for_autopilot</SPAN><SPAN class="p">(</SPAN><SPAN class="n">check_interval</SPAN><SPAN class="o">=</SPAN><SPAN class="mi">90</SPAN><SPAN class="p">)</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="container"></DIV>
+<DIV class="container">
+<DIV class="highlight">
+<PRE>In progress: 10, queued: 17 (waited: 0s)
+In progress: 10, queued: 17 (waited: 0s)
+In progress: 10, queued: 17 (waited: 1s)
+In progress: 10, queued: 17 (waited: 1s)
+In progress: 10, queued: 17 (waited: 2s)
+In progress: 10, queued: 17 (waited: 4s)
+In progress: 8, queued: 16 (waited: 8s)
+In progress: 9, queued: 11 (waited: 14s)
+In progress: 10, queued: 3 (waited: 27s)
+In progress: 2, queued: 0 (waited: 53s)
+In progress: 5, queued: 0 (waited: 104s)
+In progress: 2, queued: 0 (waited: 195s)
+In progress: 10, queued: 0 (waited: 285s)
+In progress: 3, queued: 0 (waited: 376s)
+In progress: 0, queued: 0 (waited: 467s)
+</PRE></DIV></DIV></DIV></DIV>
+<DIV class="section" id="Models">
+<H2>Models<A title="Permalink to this headline" class="headerlink" href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Models">¶</A></H2>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [20]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">models</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">get_models</SPAN><SPAN class="p">()</SPAN>
+<SPAN class="n">example_model</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">models</SPAN><SPAN class="p">[</SPAN><SPAN class="mi">0</SPAN><SPAN class="p">]</SPAN>
+<SPAN class="n">example_model</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[20]:
+</PRE></DIV></DIV>
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Model(ENET Blender)
+</PRE></DIV></DIV></DIV>
+<P>Models represent fitted models and have various data about the model,
+ including metrics:</P>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [21]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">example_model</SPAN><SPAN class="o">.</SPAN><SPAN class="n">metrics</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[21]:
+</PRE></DIV></DIV>
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>{u'AUC': {u'crossValidation': 0.759074,
+  u'holdout': None,
+  u'validation': 0.75202},
+ u'FVE Binomial': {u'crossValidation': 0.145768,
+  u'holdout': None,
+  u'validation': 0.14552},
+ u'Gini Norm': {u'crossValidation': 0.5181479999999999,
+  u'holdout': None,
+  u'validation': 0.50404},
+ u'LogLoss': {u'crossValidation': 0.273184,
+  u'holdout': None,
+  u'validation': 0.27339},
+ u'RMSE': {u'crossValidation': 0.276848,
+  u'holdout': None,
+  u'validation': 0.27643},
+ u'Rate@Top10%': {u'crossValidation': 0.368602,
+  u'holdout': None,
+  u'validation': 0.37884},
+ u'Rate@Top5%': {u'crossValidation': 0.47755200000000003,
+  u'holdout': None,
+  u'validation': 0.4898},
+ u'Rate@TopTenth%': {u'crossValidation': 0.8,
+  u'holdout': None,
+  u'validation': 1.0}}
+</PRE></DIV></DIV></DIV>
+<DIV class="nbinput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [22]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="k">def</SPAN> <SPAN class="nf">sorted_by_log_loss</SPAN><SPAN class="p">(</SPAN><SPAN class="n">models</SPAN><SPAN class="p">,</SPAN> <SPAN class="n">test_set</SPAN><SPAN class="p">):</SPAN>
+    <SPAN class="n">models_with_score</SPAN> <SPAN class="o">=</SPAN> <SPAN class="p">[</SPAN><SPAN class="n">model</SPAN> <SPAN class="k">for</SPAN> <SPAN class="n">model</SPAN> <SPAN class="ow">in</SPAN> <SPAN class="n">models</SPAN> <SPAN class="k">if</SPAN>
+                         <SPAN class="n">model</SPAN><SPAN class="o">.</SPAN><SPAN class="n">metrics</SPAN><SPAN class="p">[</SPAN><SPAN class="s1">'LogLoss'</SPAN><SPAN class="p">][</SPAN><SPAN class="n">test_set</SPAN><SPAN class="p">]</SPAN> <SPAN class="ow">is</SPAN> <SPAN class="ow">not</SPAN> <SPAN class="bp">None</SPAN><SPAN class="p">]</SPAN>
+    <SPAN class="k">return</SPAN> <SPAN class="nb">sorted</SPAN><SPAN class="p">(</SPAN><SPAN class="n">models_with_score</SPAN><SPAN class="p">,</SPAN>
+                  <SPAN class="n">key</SPAN><SPAN class="o">=</SPAN><SPAN class="k">lambda</SPAN> <SPAN class="n">model</SPAN><SPAN class="p">:</SPAN> <SPAN class="n">model</SPAN><SPAN class="o">.</SPAN><SPAN class="n">metrics</SPAN><SPAN class="p">[</SPAN><SPAN class="s1">'LogLoss'</SPAN><SPAN class="p">][</SPAN><SPAN class="n">test_set</SPAN><SPAN class="p">])</SPAN>
+</PRE></DIV></DIV></DIV>
+<P>Let’s choose the models (from each feature set, to compare the scores) with 
+the best LogLoss score from those with the rain and those without:</P>
+<DIV class="nbinput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [23]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">models</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">get_models</SPAN><SPAN class="p">()</SPAN>
+<SPAN class="n">fair_models</SPAN> <SPAN class="o">=</SPAN> <SPAN class="p">[</SPAN><SPAN class="n">mod</SPAN> <SPAN class="k">for</SPAN> <SPAN class="n">mod</SPAN> <SPAN class="ow">in</SPAN> <SPAN class="n">models</SPAN> <SPAN class="k">if</SPAN>
+               <SPAN class="n">mod</SPAN><SPAN class="o">.</SPAN><SPAN class="n">featurelist_id</SPAN> <SPAN class="o">==</SPAN> <SPAN class="n">no_foreknowledge</SPAN><SPAN class="o">.</SPAN><SPAN class="n">id</SPAN><SPAN class="p">]</SPAN>
+<SPAN class="n">rain_cheat_models</SPAN> <SPAN class="o">=</SPAN> <SPAN class="p">[</SPAN><SPAN class="n">mod</SPAN> <SPAN class="k">for</SPAN> <SPAN class="n">mod</SPAN> <SPAN class="ow">in</SPAN> <SPAN class="n">models</SPAN> <SPAN class="k">if</SPAN>
+                     <SPAN class="n">mod</SPAN><SPAN class="o">.</SPAN><SPAN class="n">featurelist_id</SPAN> <SPAN class="o">==</SPAN> <SPAN class="n">informative_feats</SPAN><SPAN class="o">.</SPAN><SPAN class="n">id</SPAN><SPAN class="p">]</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [24]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">best_fair_model</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">sorted_by_log_loss</SPAN><SPAN class="p">(</SPAN><SPAN class="n">fair_models</SPAN><SPAN class="p">,</SPAN> <SPAN class="s1">'crossValidation'</SPAN><SPAN class="p">)[</SPAN><SPAN class="mi">0</SPAN><SPAN class="p">]</SPAN>
+<SPAN class="n">best_cheat_model</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">sorted_by_log_loss</SPAN><SPAN class="p">(</SPAN><SPAN class="n">rain_cheat_models</SPAN><SPAN class="p">,</SPAN> <SPAN class="s1">'crossValidation'</SPAN><SPAN class="p">)[</SPAN><SPAN class="mi">0</SPAN><SPAN class="p">]</SPAN>
+<SPAN class="n">best_fair_model</SPAN><SPAN class="o">.</SPAN><SPAN class="n">metrics</SPAN><SPAN class="p">,</SPAN> <SPAN class="n">best_cheat_model</SPAN><SPAN class="o">.</SPAN><SPAN class="n">metrics</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[24]:
+</PRE></DIV></DIV>
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>({u'AUC': {u'crossValidation': 0.7132059999999999,
+   u'holdout': None,
+   u'validation': 0.71313},
+  u'FVE Binomial': {u'crossValidation': 0.090004,
+   u'holdout': None,
+   u'validation': 0.08903},
+  u'Gini Norm': {u'crossValidation': 0.426412,
+   u'holdout': None,
+   u'validation': 0.42626},
+  u'LogLoss': {u'crossValidation': 0.29101999999999995,
+   u'holdout': None,
+   u'validation': 0.29147},
+  u'RMSE': {u'crossValidation': 0.286056,
+   u'holdout': None,
+   u'validation': 0.28639},
+  u'Rate@Top10%': {u'crossValidation': 0.29126799999999997,
+   u'holdout': None,
+   u'validation': 0.27645},
+  u'Rate@Top5%': {u'crossValidation': 0.367348,
+   u'holdout': None,
+   u'validation': 0.40816},
+  u'Rate@TopTenth%': {u'crossValidation': 0.6,
+   u'holdout': None,
+   u'validation': 0.66667}},
+ {u'AUC': {u'crossValidation': 0.759074,
+   u'holdout': None,
+   u'validation': 0.75202},
+  u'FVE Binomial': {u'crossValidation': 0.145768,
+   u'holdout': None,
+   u'validation': 0.14552},
+  u'Gini Norm': {u'crossValidation': 0.5181479999999999,
+   u'holdout': None,
+   u'validation': 0.50404},
+  u'LogLoss': {u'crossValidation': 0.273184,
+   u'holdout': None,
+   u'validation': 0.27339},
+  u'RMSE': {u'crossValidation': 0.276848,
+   u'holdout': None,
+   u'validation': 0.27643},
+  u'Rate@Top10%': {u'crossValidation': 0.368602,
+   u'holdout': None,
+   u'validation': 0.37884},
+  u'Rate@Top5%': {u'crossValidation': 0.47755200000000003,
+   u'holdout': None,
+   u'validation': 0.4898},
+  u'Rate@TopTenth%': {u'crossValidation': 0.8,
+   u'holdout': None,
+   u'validation': 1.0}})
+</PRE></DIV></DIV></DIV></DIV>
+<DIV class="section" id="Visualizing-Models">
+<H2>Visualizing Models<A title="Permalink to this headline" class="headerlink" 
+href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Visualizing-Models">¶</A></H2>
+<P>This is a good time to use Model XRay (not yet available via the API) to
+ visualize the models:</P>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [25]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">best_fair_model</SPAN><SPAN class="o">.</SPAN><SPAN class="n">open_model_browser</SPAN><SPAN class="p">()</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[25]:
+</PRE></DIV></DIV>
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>True
+</PRE></DIV></DIV></DIV>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [26]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">best_cheat_model</SPAN><SPAN class="o">.</SPAN><SPAN class="n">open_model_browser</SPAN><SPAN class="p">()</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[26]:
+</PRE></DIV></DIV>
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>True
+</PRE></DIV></DIV></DIV></DIV>
+<DIV class="section" id="Unlocking-the-Holdout">
+<H2>Unlocking the Holdout<A title="Permalink to this headline" class="headerlink" 
+href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Unlocking-the-Holdout">¶</A></H2>
+<P>To maintain holdout scores as a valid estimate of out-of-sample error, we 
+recommend not looking at them until late in the project. For this reason, 
+holdout scores are locked until you unlock them.</P>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [27]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">unlock_holdout</SPAN><SPAN class="p">()</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[27]:
+</PRE></DIV></DIV>
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Project(Airline Delays - was_delayed)
+</PRE></DIV></DIV></DIV>
+<DIV class="nbinput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [28]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">best_fair_model</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">dr</SPAN><SPAN class="o">.</SPAN><SPAN class="n">Model</SPAN><SPAN class="o">.</SPAN><SPAN class="n">get</SPAN><SPAN class="p">(</SPAN><SPAN class="n">project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">id</SPAN><SPAN class="p">,</SPAN> <SPAN class="n">best_fair_model</SPAN><SPAN class="o">.</SPAN><SPAN class="n">id</SPAN><SPAN class="p">)</SPAN>
+<SPAN class="n">best_cheat_model</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">dr</SPAN><SPAN class="o">.</SPAN><SPAN class="n">Model</SPAN><SPAN class="o">.</SPAN><SPAN class="n">get</SPAN><SPAN class="p">(</SPAN><SPAN class="n">project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">id</SPAN><SPAN class="p">,</SPAN> <SPAN class="n">best_cheat_model</SPAN><SPAN class="o">.</SPAN><SPAN class="n">id</SPAN><SPAN class="p">)</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [29]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">best_fair_model</SPAN><SPAN class="o">.</SPAN><SPAN class="n">metrics</SPAN><SPAN class="p">[</SPAN><SPAN class="s1">'LogLoss'</SPAN><SPAN class="p">],</SPAN> <SPAN class="n">best_cheat_model</SPAN><SPAN class="o">.</SPAN><SPAN class="n">metrics</SPAN><SPAN class="p">[</SPAN><SPAN class="s1">'LogLoss'</SPAN><SPAN class="p">]</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[29]:
+</PRE></DIV></DIV>
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>({u'crossValidation': 0.29101999999999995,
+  u'holdout': 0.29315,
+  u'validation': 0.29147},
+ {u'crossValidation': 0.273184, u'holdout': 0.27413, u'validation': 0.27339})
+</PRE></DIV></DIV></DIV></DIV>
+<DIV class="section" id="Retrain-on-100%">
+<H2>Retrain on 100%<A title="Permalink to this headline" class="headerlink" 
+href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Retrain-on-100%">¶</A></H2>
+<P>When ready to use the final model, you will probably get the best performance 
+by retraining on 100% of the data.</P>
+<DIV class="nbinput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [30]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">model_job_fair_100pct_id</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">best_fair_model</SPAN><SPAN class="o">.</SPAN><SPAN class="n">train</SPAN><SPAN class="p">(</SPAN><SPAN class="n">sample_pct</SPAN><SPAN class="o">=</SPAN><SPAN class="mi">100</SPAN><SPAN class="p">)</SPAN>
+</PRE></DIV></DIV></DIV>
+<P>Wait for the model to complete:</P>
+<DIV class="nbinput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [31]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">model_fair_100pct</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">dr</SPAN><SPAN class="o">.</SPAN><SPAN class="n">models</SPAN><SPAN class="o">.</SPAN><SPAN class="n">modeljob</SPAN><SPAN class="o">.</SPAN><SPAN class="n">wait_for_async_model_creation</SPAN><SPAN class="p">(</SPAN>
+    <SPAN class="n">project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">id</SPAN><SPAN class="p">,</SPAN> <SPAN class="n">model_job_fair_100pct_id</SPAN><SPAN class="p">)</SPAN>
+</PRE></DIV></DIV></DIV></DIV>
+<DIV class="section" id="Predictions">
+<H2>Predictions<A title="Permalink to this headline" class="headerlink" href="http://pythonhosted.org/datarobot/examples/airline_ontime_example/Modeling_Airline_Delay.html#Predictions">¶</A></H2>
+<P>Let’s make predictions for some new data. This new data will need to have the 
+same transformations applied as we applied to the training data.</P>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [32]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">logan_2014</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">pd</SPAN><SPAN class="o">.</SPAN><SPAN class="n">read_csv</SPAN><SPAN class="p">(</SPAN><SPAN class="s2">"logan-US-2014.csv"</SPAN><SPAN class="p">)</SPAN>
+<SPAN class="n">logan_2014_modeling</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">prepare_modeling_dataset</SPAN><SPAN class="p">(</SPAN><SPAN class="n">logan_2014</SPAN><SPAN class="p">)</SPAN>
+<SPAN class="n">logan_2014_modeling</SPAN><SPAN class="o">.</SPAN><SPAN class="n">head</SPAN><SPAN class="p">()</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[32]:
+</PRE></DIV></DIV>
+<DIV class="container">
+<DIV style="overflow: auto; max-height: 1000px; max-width: 1500px;">
+<TABLE class="dataframe" border="1">
+  <THEAD>
+  <TR style="text-align: right;">
+    <TH></TH>
+    <TH>was_delayed</TH>
+    <TH>daily_rainfall</TH>
+    <TH>did_rain</TH>
+    <TH>Carrier Code</TH>
+    <TH>Flight Number</TH>
+    <TH>Tail Number</TH>
+    <TH>Destination Airport </TH>
+    <TH>Scheduled Departure Time</TH>
+    <TH>day_of_week</TH>
+    <TH>month</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TH>0</TH>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD> False</TD>
+    <TD> US</TD>
+    <TD> 450</TD>
+    <TD> N809AW</TD>
+    <TD> PHX</TD>
+    <TD> 10:00</TD>
+    <TD> Sat</TD>
+    <TD> 2</TD></TR>
+  <TR>
+    <TH>1</TH>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD> False</TD>
+    <TD> US</TD>
+    <TD> 553</TD>
+    <TD> N814AW</TD>
+    <TD> PHL</TD>
+    <TD> 07:00</TD>
+    <TD> Sat</TD>
+    <TD> 2</TD></TR>
+  <TR>
+    <TH>2</TH>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD> False</TD>
+    <TD> US</TD>
+    <TD> 582</TD>
+    <TD> N820AW</TD>
+    <TD> PHX</TD>
+    <TD> 06:10</TD>
+    <TD> Sat</TD>
+    <TD> 2</TD></TR>
+  <TR>
+    <TH>3</TH>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD> False</TD>
+    <TD> US</TD>
+    <TD> 601</TD>
+    <TD> N678AW</TD>
+    <TD> PHX</TD>
+    <TD> 16:20</TD>
+    <TD> Sat</TD>
+    <TD> 2</TD></TR>
+  <TR>
+    <TH>4</TH>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD> False</TD>
+    <TD> US</TD>
+    <TD> 657</TD>
+    <TD> N662AW</TD>
+    <TD> CLT</TD>
+    <TD> 09:45</TD>
+    <TD> Sat</TD>
+    <TD> 2</TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV class="nbinput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [33]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">prediction_dataset</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">project</SPAN><SPAN class="o">.</SPAN><SPAN class="n">upload_dataset</SPAN><SPAN class="p">(</SPAN><SPAN class="n">logan_2014_modeling</SPAN><SPAN class="p">)</SPAN>
+<SPAN class="n">predict_job</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">model_fair_100pct</SPAN><SPAN class="o">.</SPAN><SPAN class="n">request_predictions</SPAN><SPAN class="p">(</SPAN><SPAN class="n">prediction_dataset</SPAN><SPAN class="o">.</SPAN><SPAN class="n">id</SPAN><SPAN class="p">)</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nbinput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [34]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">predictions</SPAN> <SPAN class="o">=</SPAN> <SPAN class="n">predict_job</SPAN><SPAN class="o">.</SPAN><SPAN class="n">get_result_when_complete</SPAN><SPAN class="p">()</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nbinput container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>In [35]:
+</PRE></DIV></DIV>
+<DIV class="highlight-ipython2">
+<DIV class="highlight">
+<PRE><SPAN></SPAN><SPAN class="n">pd</SPAN><SPAN class="o">.</SPAN><SPAN class="n">concat</SPAN><SPAN class="p">([</SPAN><SPAN class="n">logan_2014_modeling</SPAN><SPAN class="p">,</SPAN> <SPAN class="n">predictions</SPAN><SPAN class="p">],</SPAN> <SPAN class="n">axis</SPAN><SPAN class="o">=</SPAN><SPAN class="mi">1</SPAN><SPAN class="p">)</SPAN><SPAN class="o">.</SPAN><SPAN class="n">head</SPAN><SPAN class="p">()</SPAN>
+</PRE></DIV></DIV></DIV>
+<DIV class="nboutput nblast container">
+<DIV class="highlight-none">
+<DIV class="highlight">
+<PRE><SPAN></SPAN>Out[35]:
+</PRE></DIV></DIV>
+<DIV class="container">
+<DIV style="overflow: auto; max-height: 1000px; max-width: 1500px;">
+<TABLE class="dataframe" border="1">
+  <THEAD>
+  <TR style="text-align: right;">
+    <TH></TH>
+    <TH>was_delayed</TH>
+    <TH>daily_rainfall</TH>
+    <TH>did_rain</TH>
+    <TH>Carrier Code</TH>
+    <TH>Flight Number</TH>
+    <TH>Tail Number</TH>
+    <TH>Destination Airport </TH>
+    <TH>Scheduled Departure Time</TH>
+    <TH>day_of_week</TH>
+    <TH>month</TH>
+    <TH>positive_probability</TH>
+    <TH>prediction</TH>
+    <TH>row_id</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TH>0</TH>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD> False</TD>
+    <TD> US</TD>
+    <TD> 450</TD>
+    <TD> N809AW</TD>
+    <TD> PHX</TD>
+    <TD> 10:00</TD>
+    <TD> Sat</TD>
+    <TD> 2</TD>
+    <TD> 0.061519</TD>
+    <TD> 0</TD>
+    <TD> 0</TD></TR>
+  <TR>
+    <TH>1</TH>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD> False</TD>
+    <TD> US</TD>
+    <TD> 553</TD>
+    <TD> N814AW</TD>
+    <TD> PHL</TD>
+    <TD> 07:00</TD>
+    <TD> Sat</TD>
+    <TD> 2</TD>
+    <TD> 0.047499</TD>
+    <TD> 0</TD>
+    <TD> 1</TD></TR>
+  <TR>
+    <TH>2</TH>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD> False</TD>
+    <TD> US</TD>
+    <TD> 582</TD>
+    <TD> N820AW</TD>
+    <TD> PHX</TD>
+    <TD> 06:10</TD>
+    <TD> Sat</TD>
+    <TD> 2</TD>
+    <TD> 0.029104</TD>
+    <TD> 0</TD>
+    <TD> 2</TD></TR>
+  <TR>
+    <TH>3</TH>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD> False</TD>
+    <TD> US</TD>
+    <TD> 601</TD>
+    <TD> N678AW</TD>
+    <TD> PHX</TD>
+    <TD> 16:20</TD>
+    <TD> Sat</TD>
+    <TD> 2</TD>
+    <TD> 0.161229</TD>
+    <TD> 0</TD>
+    <TD> 3</TD></TR>
+  <TR>
+    <TH>4</TH>
+    <TD> False</TD>
+    <TD> 0</TD>
+    <TD> False</TD>
+    <TD> US</TD>
+    <TD> 657</TD>
+    <TD> N662AW</TD>
+    <TD> CLT</TD>
+    <TD> 09:45</TD>
+    <TD> Sat</TD>
+    <TD> 2</TD>
+    <TD> 0.062162</TD>
+    <TD> 0</TD>
+    <TD> 
+4</TD></TR></TBODY></TABLE></DIV></DIV></DIV></DIV></DIV></DIV></DIV><FOOTER>
+<DIV class="rst-footer-buttons" role="navigation" 
+aria-label="footer navigation"><A title="Financial Data" class="btn btn-neutral float-right" 
+accesskey="n" href="http://pythonhosted.org/datarobot/examples/financial_data/index.html">Next 
+<SPAN class="fa fa-arrow-circle-right"></SPAN></A>                     <A title="Examples" 
+class="btn btn-neutral" accesskey="p" href="http://pythonhosted.org/datarobot/examples/index.html"><SPAN 
+class="fa fa-arrow-circle-left"></SPAN> Previous</A>           </DIV>
+<HR>
+
+<DIV role="contentinfo">
+<P>© Copyright 2016, DataRobot, Inc..     </P></DIV>  Built with <A href="http://sphinx-doc.org/">Sphinx</A> 
+using a <A href="https://github.com/snide/sphinx_rtd_theme">theme</A> provided 
+by <A href="https://readthedocs.org/">Read the Docs</A>.  
+</FOOTER></DIV></DIV></SECTION></DIV>
+<SCRIPT type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.6.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </SCRIPT>
+       
+<SCRIPT src="Modeling%20Airline%20Delay%20—%20DataRobot%20Python%20Client%202_6_1%20documentation_files/jquery.js" type="text/javascript"></SCRIPT>
+       
+<SCRIPT src="Modeling%20Airline%20Delay%20—%20DataRobot%20Python%20Client%202_6_1%20documentation_files/underscore.js" type="text/javascript"></SCRIPT>
+       
+<SCRIPT src="Modeling%20Airline%20Delay%20—%20DataRobot%20Python%20Client%202_6_1%20documentation_files/doctools.js" type="text/javascript"></SCRIPT>
+           
+<SCRIPT src="Modeling%20Airline%20Delay%20—%20DataRobot%20Python%20Client%202_6_1%20documentation_files/theme.js" type="text/javascript"></SCRIPT>
+         
+<SCRIPT type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </SCRIPT>
+    </BODY></HTML>
